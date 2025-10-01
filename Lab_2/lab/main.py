@@ -1,6 +1,7 @@
 from .processing import StudentManager
 from .io_utils import readStudentsFromCSV, writeStudentsToCSV, exportTopNtoCSV
 from .errors import *
+from lab.models import Student
 
 def main():
     manager = StudentManager()
