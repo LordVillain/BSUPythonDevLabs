@@ -3,7 +3,7 @@ from typing import List, Optional
 from .models import Student
 from .errors import InvalidDataError, FileError
 
-def readStudentsFromCSV(filename, has_header: bool = True):
+def readStudentsFromCSV(filename: str, has_header: bool = True) -> List[Student]:
     students = []
     try:
         with open(filename, 'r', encoding='utf-8', newline='') as f:
@@ -54,7 +54,7 @@ def readStudentsFromCSV(filename, has_header: bool = True):
     return students
 
 
-def writeStudentsToCSV(filename, students, write_header: bool = True):
+def writeStudentsToCSV(filename: str, students: List[Student], write_header: bool = True) -> None:
     if not students:
         headers = ["id", "name"]
         with open(filename, 'w', encoding='utf-8', newline='') as f:
@@ -85,7 +85,7 @@ def writeStudentsToCSV(filename, students, write_header: bool = True):
         raise FileError(f"Ошибка при записи в файл: {e}")
 
 
-def exportTopNtoCSV(filename, students, n):
+def exportTopNtoCSV(filename: str, students: List[Student], n: int) -> None:
     top_n = sorted(students, key=lambda s: (-s.average(), s.name))[:n]
 
     with open(filename, 'w', encoding='utf-8', newline='') as f:
