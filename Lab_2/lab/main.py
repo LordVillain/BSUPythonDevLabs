@@ -98,7 +98,7 @@ def main():
 
             elif choice == "8":
                 n = int(input("ТОП-N: "))
-                exportFilename = input("Имя файла для экспорта: ") or "top.csv"
+                exportFilename = input("Имя файла для экспорта с расширением csv (по умолчанию top.csv): ") or "top.csv"
                 exportTopNtoCSV(exportFilename, manager.students, n)
                 print(f"ТОП-{n} экспортирован в {exportFilename}")
 

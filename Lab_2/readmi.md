@@ -19,10 +19,10 @@ cd Lab_2
 
 Запуск приложения:
 ```bash
-python -m lab.main
+python3 -m lab.main
 ```
 
 Запуск тестов:
 ```bash
-pytest -q
+python -m pytest -q
 ```

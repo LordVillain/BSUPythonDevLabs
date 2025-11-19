@@ -2,6 +2,7 @@ import csv
 from typing import List, Optional
 from .models import Student
 from .errors import InvalidDataError, FileError
+from pathlib import Path
 
 def readStudentsFromCSV(filename: str, has_header: bool = True) -> List[Student]:
     students = []
@@ -86,6 +87,14 @@ def writeStudentsToCSV(filename: str, students: List[Student], write_header: boo
 
 
 def exportTopNtoCSV(filename: str, students: List[Student], n: int) -> None:
+    if isinstance(filename, Path):
+        filename_str = str(filename)
+    else:
+        filename_str = filename
+
+    if not filename_str.endswith('.csv'):
+        filename_str += '.csv'
+
     top_n = sorted(students, key=lambda s: (-s.average(), s.name))[:n]
 
     with open(filename, 'w', encoding='utf-8', newline='') as f:
