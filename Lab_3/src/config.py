@@ -1,10 +1,12 @@
 import os
 
+# Пути
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE_DIR, 'data', 'raw', 'german.data')
 DB_PATH = os.path.join(BASE_DIR, 'output', 'database', 'credit_data.db')
 FIG_PATH = os.path.join(BASE_DIR, 'output', 'figures')
 
+# Заголовки столбцов
 COLUMN_NAMES = [
     'status', 'duration', 'credit_history', 'purpose', 'amount',
     'savings', 'employment_duration', 'installment_rate', 'personal_status_sex',
@@ -13,6 +15,7 @@ COLUMN_NAMES = [
     'people_liable', 'telephone', 'foreign_worker', 'credit_risk'
 ]
 
+# Кодировка
 DECODE_MAP = {
     'status': {
         'A11': '< 0 DM', 'A12': '0 <= ... < 200 DM', 'A13': '>= 200 DM / Salary', 'A14': 'no checking account'

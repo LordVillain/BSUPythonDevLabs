@@ -3,6 +3,7 @@ import pandas as pd
 import os
 from src.config import DB_PATH
 
+# База данных
 def export_to_sql(df):
     print("\nШаг 5: База данных")
     
@@ -14,6 +15,7 @@ def export_to_sql(df):
     print("Таблица 'clients' успешно обновлена/создана")
     return conn
 
+# Запросы
 def run_queries(conn):    
     queries = [
         (
@@ -68,6 +70,7 @@ def run_queries(conn):
         )
     ]
     
+    # Выполнение
     for title, sql in queries:
         print(f"\n[SQL] {title}")
         print(pd.read_sql(sql, conn))

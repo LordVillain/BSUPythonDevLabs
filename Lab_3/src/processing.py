@@ -1,6 +1,7 @@
 import pandas as pd
 from src.config import COLUMN_NAMES, DECODE_MAP
 
+# Загрузка и обработка
 def load_data(path):
     print("Шаг 1: Загрузка данных")
     try:
@@ -11,6 +12,7 @@ def load_data(path):
         print(f"ОШИБКА: Файл не найден по пути {path}")
         raise
 
+# Предобработка
 def preprocess_data(df):
     print("\nШаг 2: Предобработка данных")
     
@@ -29,6 +31,7 @@ def preprocess_data(df):
     print("Данные расшифрованы и подготовлены.")
     return df_readable
 
+# Аналитика
 def get_statistics(df):
     print("\nШаг 3: Статистика")
     print("Средние значения:")
